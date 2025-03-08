@@ -1,16 +1,10 @@
-import { useState } from "react";
 import OtherComponent from "./components/OtherComponent";
+import { useCounterStore } from "./store";
 
 function App() {
-  const [count, setCount] = useState<number>(0);
-
-  function increment() {
-    setCount((s) => s + 1);
-  }
-
-  function decrement() {
-    setCount((s) => s - 1);
-  }
+  const count = useCounterStore((state) => state.count)
+  const increment = useCounterStore((state) => state.increment)
+  const decrement = useCounterStore((state) => state.decrement)
 
   return (
     <>
